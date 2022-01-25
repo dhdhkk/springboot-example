@@ -22,10 +22,14 @@ dependencies {
     //(3)
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.springframework.boot:spring-boot-starter-mustache')
+    implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
+    implementation('org.springframework.session:spring-session-jdbc')
 
     // lombok
     implementation('org.projectlombok:lombok')
     implementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
     annotationProcessor('org.projectlombok:lombok')
     testImplementation('org.projectlombok:lombok')
     testAnnotationProcessor('org.projectlombok:lombok')
@@ -35,4 +39,6 @@ dependencies {
     implementation('com.h2database:h2')
 
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+    implementation('org.springframework.security:spring-security-test')
 }
