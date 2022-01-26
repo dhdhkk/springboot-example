@@ -1,3 +1,10 @@
-# springboot-demo-2
+# springboot 스터디를 위한 프로젝트
 
-'스프링 부트와 AWS로 혼자 구현하는 웹 서비스'를 보며 실습
+- Springboot, Mustache, JPA, Oauth2.0
+
+- AWS EC2, RDS, S3
+
+- Github Actions + CodeDeploy + Nginx 활용 무중단 배포
+
+
+
