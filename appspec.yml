@@ -3,7 +3,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/springboot-demo/ # 프로젝트 이름
+    destination: /home/ec2-user/app/step1 # 프로젝트 이름
     overwrite: yes
 
   permissions:
