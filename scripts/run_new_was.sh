@@ -1,5 +1,11 @@
 # run_new_was.sh
 #!/bin/bash
+# 추가
+REPOSITORY=/home/ec2-user/app/step2
+PROJECT_NAME=zip
+
+
+
 CURRENT_PORT=$(cat /home/ec2-user/service_url.inc | grep -Po '[0-9]+' | tail -1)
 TARGET_PORT=0
 echo "> Current port of running WAS is ${CURRENT_PORT}."
@@ -19,7 +25,12 @@ if [ ! -z ${TARGET_PID} ]; then
   sudo kill ${TARGET_PID}
 fi
 
-nohup java -jar -Dserver.port=${TARGET_PORT} /home/ec2-user/app/step2/zip/build/libs/* > /home/ec2-user/app/step2/nohup.out 2>&1 &
-echo "> Now new WAS runs at ${TARGET_PORT}."
-exit 0
+#nohup java -jar -Dserver.port=${TARGET_PORT} /home/ec2-user/app/step2/zip/build/libs/* > /home/ec2-user/app/step2/nohup.out 2>&1 &
+#echo "> Now new WAS runs at ${TARGET_PORT}."
+#exit 0
 
+nohup java -jar \
+        -Dspring.port=${TARGET_PORT}
+        -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties\
+        -Dspring.profiles.active=real\
+        $REPOSITORY/zip/build/libs/* /home/ec2-user/app/step2/nohup.out 2>&1 &
