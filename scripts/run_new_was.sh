@@ -7,7 +7,7 @@ PROJECT_NAME=zip
 
 
 CURRENT_PORT=$(cat /home/ec2-user/service_url.inc | grep -Po '[0-9]+' | tail -1)
-TARGET_PORT=8081
+TARGET_PORT=0
 echo "> Current port of running WAS is ${CURRENT_PORT}."
 
 if [ ${CURRENT_PORT} -eq 8081 ]; then
@@ -30,7 +30,7 @@ fi
 #exit 0
 
 nohup java -jar \
-        -Dspring.port=${TARGET_PORT}
+        -Dserver.port=${TARGET_PORT}
         -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties \
         -Dspring.profiles.active=real \
         $REPOSITORY/zip/build/libs/* > /home/ec2-user/app/step2/nohup.out 2>&1 &
