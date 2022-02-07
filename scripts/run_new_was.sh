@@ -1,4 +1,3 @@
-# run_new_was.sh
 #!/bin/bash
 # 추가
 REPOSITORY=/home/ec2-user/app/step2
