@@ -22,7 +22,8 @@ TARGET_PID=$(lsof -Fp -i TCP:${TARGET_PORT} | grep -Po 'p[0-9]+' | grep -Po '[0-
 
 if [ ! -z ${TARGET_PID} ]; then
   echo "> Kill WAS running at ${TARGET_PORT}."
-  sudo kill ${TARGET_PID}
+  sudo kill -15 ${TARGET_PID}
+  sleep 5
 fi
 
 #nohup java -jar -Dserver.port=${TARGET_PORT} /home/ec2-user/app/step2/zip/build/libs/* > /home/ec2-user/app/step2/nohup.out 2>&1 &
