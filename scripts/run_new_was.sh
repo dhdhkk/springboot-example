@@ -42,8 +42,8 @@ cp /home/ec2-user/app/step2/zip/build/libs/*.jar /home/ec2-user/app/step2/
 JAR_NAME=$(ls -tr /home/ec2-user/app/step2/ | grep jar | tail -n 1)
 
 echo "> JAR Name : $JAR_NAME"
-echo "> $JAR_NAME에 실행권한 추가"
-chmod +x $JAR_NAME
+#echo "> $JAR_NAME에 실행권한 추가"
+#chmod +x $JAR_NAME
 
 #nohup java -jar -Dserver.port=${TARGET_PORT} -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real /home/ec2-user/app/step2/zip/build/libs/* > /home/ec2-user/app/step2/nohup.out 2>&1 &
 nohup java -jar -Dserver.port=${TARGET_PORT} -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real $JAR_NAME > /home/ec2-user/app/step2/nohup.out 2>&1 &
