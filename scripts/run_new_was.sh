@@ -39,7 +39,8 @@ fi
 echo "> Build 파일 복사"
 cp /home/ec2-user/app/step2/zip/build/libs/*.jar /home/ec2-user/app/step2/
 
-JAR_NAME = $(ls -tr /home/ec2-user/app/step2/*.jar | tail -n 1)
+JAR_NAME=$(ls -tr /home/ec2-user/app/step2/*.jar | tail -n 1)
+
 echo "> JAR Name : $JAR_NAME"
 echo "> $JAR_NAME에 실행권한 추가"
 chmod +x $JAR_NAME
