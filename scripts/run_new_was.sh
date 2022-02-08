@@ -47,6 +47,6 @@ echo "> JAR Name : $JAR_NAME"
 
 #nohup java -jar -Dserver.port=${TARGET_PORT} -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real /home/ec2-user/app/step2/zip/build/libs/* > /home/ec2-user/app/step2/nohup.out 2>&1 &
 #nohup java -jar -Dserver.port=${TARGET_PORT} -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real /home/ec2-user/app/step2/$JAR_NAME > /home/ec2-user/app/step2/nohup.out 2>&1 &
-nohup java -jar -Dserver.port=${TARGET_PORT} -Dspring.config.location=classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real /home/ec2-user/app/step2/$JAR_NAME > /home/ec2-user/app/step2/nohup.out 2>&1 &
+nohup java -jar -Dserver.port=${TARGET_PORT} -Dspring.config.location=/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real /home/ec2-user/app/step2/$JAR_NAME > /home/ec2-user/app/step2/nohup.out 2>&1 &
 echo "> Now new WAS runs at ${TARGET_PORT}."
 exit 0
