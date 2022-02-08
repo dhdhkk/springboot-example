@@ -1,21 +1,23 @@
 <configuration>
 
-<!--    파일에 로그를 남깁니다.-->
-    <appender name="STDOUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>C:/RemoteUpdate/var/log/%d{yyyy/MM/dd}/openapi-%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <Pattern>
-                %d{yyyy-MM-dd HH:mm:ss} [%-5level] %msg%n
-            </Pattern>
-            <charset>UTF-8</charset>
-        </encoder>
-    </appender>
-    <logger name="STDOUT" level="DEBUG">
-        <appender-ref ref="STDOUT" />
-    </logger>
+    <springProfile name="oauth">
+        <!--    파일에 로그를 남깁니다.-->
+        <appender name="STDOUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>C:/RemoteUpdate/var/log/%d{yyyy/MM/dd}/openapi-%d{yyyy-MM-dd}.log</fileNamePattern>
+                <maxHistory>30</maxHistory>
+            </rollingPolicy>
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <Pattern>
+                    %d{yyyy-MM-dd HH:mm:ss} [%-5level] %msg%n
+                </Pattern>
+                <charset>UTF-8</charset>
+            </encoder>
+        </appender>
+        <logger name="STDOUT" level="DEBUG">
+            <appender-ref ref="STDOUT" />
+        </logger>
+    </springProfile>
 
     <springProfile name="real">
         <!--파일에 로그를 남깁니다.-->

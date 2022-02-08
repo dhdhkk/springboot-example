@@ -1,6 +1,5 @@
 <configuration>
 
-<!--    파일에 로그를 남깁니다.-->
     <springProfile name="real">
         <!--파일에 로그를 남깁니다.-->
         <appender name="STDOUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -19,6 +18,15 @@
             <appender-ref ref="STDOUT" />
         </logger>
     </springProfile>
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] [%-5level] %logger{36} - %msg%n
+            </Pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
 
     <root level="INFO">
         <appender-ref ref="Console"/>

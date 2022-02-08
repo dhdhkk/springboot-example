@@ -24,7 +24,8 @@ public class HelloController {
     @GetMapping("/health")
     public String checkHealth()
     {
-        logger.debug("TEST");
+        String profile = System.getProperty("spring.profiles.active");
+        logger.debug("TEST" + profile);
 
         return "healthy";
     }
