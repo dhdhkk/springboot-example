@@ -10,7 +10,7 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    jcenter()
+    //jcenter()
 }
 
 // for Junit 5
@@ -24,6 +24,9 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-mustache')
     implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
     implementation('org.springframework.session:spring-session-jdbc')
+
+    // Swagger 적용
+    implementation('io.springfox:springfox-boot-starter:3.0.0')
 
     // lombok
     implementation('org.projectlombok:lombok')
